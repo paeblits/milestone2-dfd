@@ -9,4 +9,13 @@
 
 img.arrows {
 	width: 100%;
+	margin: 5px 0 5px;
+}
+
+div.module {
+
+}
+
+div.module:hover, div.module:focus {
+	cursor: pointer;
 }

@@ -25,32 +25,121 @@
 
   <body ng-app="aerospace-diagram">
 
-    <!--
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+    <!-- Modal Dialogues for all controllers and models -->
+    <!-- Ordered from left to right, top to bottom -->
+    
+    <!-- Widget Container Modal -->
+    <div class="modal fade" id="widgetContainer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Widget Container</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
-    </nav> -->
+    </div>
+
+    <!-- Data Source Container Modal -->
+    <div class="modal fade" id="dataSrcContainer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Data Source Container</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widget Creation Controller Modal -->
+    <div class="modal fade" id="widgetCreationCtrl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Widget Creation Controller</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Graphing Controller Modal -->
+    <div class="modal fade" id="graphingCtrl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Graphing Controller</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Source Controller Modal -->
+    <div class="modal fade" id="dataSrcCtrl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Data Source Controller</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Save Load Controller Modal -->
+    <div class="modal fade" id="saveLoadCtrl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Save/Load Controller</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="container" ng-controller="MainCtrl">
 
       <div class="heading">
-        <h1>Web STARS milestone 2</h1>
+        <h1>Web STARS: milestone 2</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
       </div>
 
@@ -63,11 +152,11 @@
         </div>
       </div>
       <div class="row top">
-        <div class="col-sm-2 col-sm-offset-3">
-          
+        <div class="module col-sm-2 col-sm-offset-3" data-toggle="modal" data-target="#widgetContainer">
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="Popover for widgetContainer."></div>
         </div>
-        <div class="col-sm-2 col-sm-offset-3">
-          
+        <div class="module col-sm-2 col-sm-offset-2" data-toggle="modal" data-target="#dataSrcContainer">
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Popover for dataSrcContainer"></div>
         </div>
       </div>
       <div class="row">
@@ -76,22 +165,22 @@
         </div>
       </div>
       <div class="row mid">
-        <div class="col-sm-2 col-sm-offset-1">
-          
+        <div class="module col-sm-2" data-toggle="modal" data-target="#widgetCreationCtrl">
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="Popover for widgetCreationCtrl"></div>
         </div>
-        <div class="col-sm-2 col-sm-offset-1">
-          
+        <div class="module col-sm-2 col-sm-offset-1" data-toggle="modal" data-target="#graphingCtrl">
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="Popover for graphingCtrl"></div>
         </div>
-        <div class="col-sm-2 col-sm-offset-1">
-          
+        <div class="module col-sm-2 col-sm-offset-2" data-toggle="modal" data-target="#dataSrcCtrl">
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Popover for dataSrcCtrl"></div>
         </div>
-        <div class="col-sm-2 col-sm-offset-1">
-          
+        <div class="module col-sm-2 col-sm-offset-1" data-toggle="modal" data-target="#saveLoadCtrl">
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Popover for saveLoadCtrl"></div>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <img class="arrows arrows3" src="images/arrows3.png">
+          <!-- <img class="arrows arrows3" src="images/arrows3.png"> -->
         </div>
       </div>
       <div class="row bottom">
@@ -105,5 +194,11 @@
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="bootstrap3/js/bootstrap.min.js"></script>
+    <!-- initialize popover -->
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+    </script>
   </body>
 </html>
