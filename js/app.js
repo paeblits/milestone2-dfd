@@ -29,18 +29,18 @@ angular.module('aerospace-diagram', [])
     "				item <- widget</pre>",
             	   umlCode: 
     "<ul>" +
-    "	<li class='private'>widgetList: Widget[]</li>" +
+    "	<li>- widgetList: Widget[]</li>" +
     "</ul>" +
     "<hr />" +
     "<ul>" +
-    "	<li class='public'>createWidget(widget)</li>" +
-    "	<li class='public'>getWidget(widgetId)</li>" +
-    "	<li class='public'>getAllWidgets()</li>" +
-    "	<li class='public'>setWidget(widgetId,widget)</li>" +
+    "	<li>+ createWidget(widget)</li>" +
+    "	<li>+ getWidget(widgetId)</li>" +
+    "	<li>+ getAllWidgets()</li>" +
+    "	<li>+ setWidget(widgetId,widget)</li>" +
     "</ul>"
                } , {
             	   title: "DataSrc Container",
-            	   description: "",
+            	   description: "The Data Source Container contains a list of all the feeds that are available from all the sources that are being monitored. This container allows the graphing controller to determine which widget will display which feed(s). The Data Source controller will allow users to monitor new sources",
             	   pseudoCode: "",
             	   umlCode: ""
                } , {

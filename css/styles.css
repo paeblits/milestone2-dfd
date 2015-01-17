@@ -19,3 +19,5 @@ div.module {
 div.module:hover, div.module:focus {
 	cursor: pointer;
 }
+
+div.popover ul { list-style-type: none; }
