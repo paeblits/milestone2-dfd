@@ -63,7 +63,7 @@ angular.module('aerospace-diagram', [])
             	   umlCode: ""
                } , {
             	   title: "Widget Creation Ctrl",
-            	   description: "",
+            	   description: "The Widget Creation Controller is responsible for initiating the 'createWidget' function from the Widget Container. The Widget Creation Controller will send an instance of a new widget object to the Widget Container to be added to the list of all created widgets",
             	   pseudoCode: "",
             	   umlCode: ""
                } , {
@@ -73,7 +73,7 @@ angular.module('aerospace-diagram', [])
             	   umlCode: ""
                } , {
             	   title: "DataSrc Ctrl",
-            	   description: "",
+            	   description: "The Data Source Controller is responsible for adding new data sources to the Data Source Container",
             	   pseudoCode: "",
             	   umlCode: ""
                } , {
