@@ -41,7 +41,25 @@ angular.module('aerospace-diagram', [])
                } , {
             	   title: "DataSrc Container",
             	   description: "The Data Source Container contains a list of all the feeds that are available from all the sources that are being monitored. This container allows the graphing controller to determine which widget will display which feed(s). The Data Source controller will allow users to monitor new sources",
-            	   pseudoCode: "",
+            	   pseudoCode: 
+   "<pre>class DataSrcContainer()\r\n" +
+   "	dataFeedList <- DataFeed[]\r\n" +
+   "	procedure addFeed(feed)\r\n" +
+   "		toAdd <- true\r\n" +
+   "		for each(dataFeed in dataFeedList)\r\n" +
+   "			if(dataFeed.getId() is feed.getId())\r\n" +
+   "				toAdd <- false\r\n" +
+   "		if(toAdd)\r\n" +
+   "			add feed to dataFeedList\r\n" +
+   "	procedure getFeed(feedId)\r\n" +
+   "		retFeed <- null\r\n" +
+   "		for each(feed in dataFeedList)\r\n" +
+   "			if(feed.getId() is feedId)\r\n" +
+   "				retFeed <- feed\r\n" +
+   "		return retFeed\r\n" +
+   "	procedure getAllFeeds()\r\n" +
+   "		return dataFeedList\r\n" +
+   "</pre>",
             	   umlCode: ""
                } , {
             	   title: "Widget Creation Ctrl",
