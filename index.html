@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="aerospace-diagram">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,7 @@
     <![endif]-->
   </head>
 
-  <body ng-app="aerospace-diagram">
+  <body ng-controller="MainCtrl">
 
     <!-- Modal Dialogues for all controllers and models -->
     <!-- Ordered from left to right, top to bottom -->
@@ -37,7 +37,9 @@
             <h4 class="modal-title" id="myModalLabel">Widget Container</h4>
           </div>
           <div class="modal-body">
-            ...
+          	<div class="modal-body-description">{{arr[0].description}}</div>
+          	<hr />
+          	<div class="modal-body-pseudo" ng-bind-html="getHTML(arr[0].pseudoCode)"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -55,7 +57,9 @@
             <h4 class="modal-title" id="myModalLabel">Data Source Container</h4>
           </div>
           <div class="modal-body">
-            ...
+            <div class="modal-body-description">{{arr[1].description}}</div>
+          	<hr />
+          	<div class="modal-body-pseudo" ng-bind-html="getHTML(arr[1].pseudoCode)"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -73,7 +77,9 @@
             <h4 class="modal-title" id="myModalLabel">Widget Creation Controller</h4>
           </div>
           <div class="modal-body">
-            ...
+            <div class="modal-body-description">{{arr[2].description}}</div>
+          	<hr />
+          	<div class="modal-body-pseudo" ng-bind-html="getHTML(arr[2].pseudoCode)"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -91,7 +97,9 @@
             <h4 class="modal-title" id="myModalLabel">Graphing Controller</h4>
           </div>
           <div class="modal-body">
-            ...
+            <div class="modal-body-description">{{arr[3].description}}</div>
+          	<hr />
+          	<div class="modal-body-pseudo" ng-bind-html="getHTML(arr[3].pseudoCode)"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -109,7 +117,9 @@
             <h4 class="modal-title" id="myModalLabel">Data Source Controller</h4>
           </div>
           <div class="modal-body">
-            ...
+            <div class="modal-body-description">{{arr[4].description}}</div>
+          	<hr />
+          	<div class="modal-body-pseudo" ng-bind-html="getHTML(arr[4].pseudoCode)"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -127,7 +137,9 @@
             <h4 class="modal-title" id="myModalLabel">Save/Load Controller</h4>
           </div>
           <div class="modal-body">
-            ...
+            <div class="modal-body-description">{{arr[5].description}}</div>
+          	<hr />
+          	<div class="modal-body-pseudo" ng-bind-html="getHTML(arr[5].pseudoCode)"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -136,7 +148,7 @@
       </div>
     </div>
 
-    <div class="container" ng-controller="MainCtrl">
+    <div class="container">
 
       <div class="heading">
         <h1>Web STARS: milestone 2</h1>
@@ -153,10 +165,10 @@
       </div>
       <div class="row top">
         <div class="module col-sm-2 col-sm-offset-3" data-toggle="modal" data-target="#widgetContainer">
-          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="Popover for widgetContainer."></div>
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{arr[0].umlCode}}">{{arr[0].title}}</div>
         </div>
         <div class="module col-sm-2 col-sm-offset-2" data-toggle="modal" data-target="#dataSrcContainer">
-          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Popover for dataSrcContainer"></div>
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="{{arr[1].umlCode}}">{{arr[1].title}}</div>
         </div>
       </div>
       <div class="row">
@@ -166,16 +178,16 @@
       </div>
       <div class="row mid">
         <div class="module col-sm-2" data-toggle="modal" data-target="#widgetCreationCtrl">
-          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="Popover for widgetCreationCtrl"></div>
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{arr[2].umlCode}}">{{arr[2].title}}</div>
         </div>
         <div class="module col-sm-2 col-sm-offset-1" data-toggle="modal" data-target="#graphingCtrl">
-          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="Popover for graphingCtrl"></div>
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{arr[3].umlCode}}">{{arr[3].title}}</div>
         </div>
         <div class="module col-sm-2 col-sm-offset-2" data-toggle="modal" data-target="#dataSrcCtrl">
-          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Popover for dataSrcCtrl"></div>
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="{{arr[4].umlCode}}">{{arr[4].title}}</div>
         </div>
         <div class="module col-sm-2 col-sm-offset-1" data-toggle="modal" data-target="#saveLoadCtrl">
-          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="Popover for saveLoadCtrl"></div>
+          <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="{{arr[5].umlCode}}">{{arr[5].title}}</div>
         </div>
       </div>
       <div class="row">
@@ -197,7 +209,7 @@
     <!-- initialize popover -->
     <script>
       $(function () {
-        $('[data-toggle="popover"]').popover()
+        $('[data-toggle="popover"]').popover({html: true});
       })
     </script>
   </body>
