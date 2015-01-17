@@ -40,7 +40,7 @@ angular.module('aerospace-diagram', [])
     "</ul>"
                } , {
             	   title: "DataSrc Container",
-            	   description: "The Data Source Container contains a list of all the feeds that are available from all the sources that are being monitored. This container allows the graphing controller to determine which widget will display which feed(s). The Data Source controller will allow users to monitor new sources",
+            	   description: "The Data Source Container contains a list of all the feeds that are available from all the sources that are being monitored. This container allows the graphing controller to determine which widget will display which feed(s). The Data Source controller will allow users to monitor new sources.",
             	   pseudoCode: 
    "<pre>class DataSrcContainer()\r\n" +
    "	dataFeedList <- DataFeed[]\r\n" +
@@ -63,7 +63,7 @@ angular.module('aerospace-diagram', [])
             	   umlCode: ""
                } , {
             	   title: "Widget Creation Ctrl",
-            	   description: "The Widget Creation Controller is responsible for initiating the 'createWidget' function from the Widget Container. The Widget Creation Controller will send an instance of a new widget object to the Widget Container to be added to the list of all created widgets",
+            	   description: "The Widget Creation Controller is responsible for initiating the 'createWidget' function from the Widget Container. The Widget Creation Controller will send an instance of a new widget object to the Widget Container to be added to the list of all created widgets.",
             	   pseudoCode: "",
             	   umlCode: ""
                } , {
@@ -73,12 +73,12 @@ angular.module('aerospace-diagram', [])
             	   umlCode: ""
                } , {
             	   title: "DataSrc Ctrl",
-            	   description: "The Data Source Controller is responsible for adding new data sources to the Data Source Container",
+            	   description: "The Data Source Controller is responsible for adding new data sources to the Data Source Container. The Data Source Controller will send an instance of a new data source object to the Data Source Container, which the Data Source Container will query the source for feeds that can be added to the list of available feeds.",
             	   pseudoCode: "",
             	   umlCode: ""
                } , {
             	   title: "Save/Load Ctrl",
-            	   description: "",
+            	   description: "The Save Load Controller allows users to export or import the layout. The file generated will be an xml file containing data about all the widgets generated, the feeds that those widgets are monitoring and the list of all available data feeds.",
             	   pseudoCode: "",
             	   umlCode: ""
                }
