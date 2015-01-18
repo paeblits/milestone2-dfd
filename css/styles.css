@@ -12,6 +12,11 @@ img.arrows {
 /*	margin: 5px 0 5px; */)
 }
 
+img.arrows2 {
+	height: 100%;
+	width: initial;
+}
+
 .bottom {
 	height: 60px;
 }
@@ -26,11 +31,22 @@ button.module {
 	white-space: normal;
 }
 
+.btn[disabled] {
+	opacity: 1;
+}
+
 footer {
 	font-size: 12px;
 }
 
 div.popover ul { list-style-type: none; }
+
+#sidenote {
+	z-index: 100;
+	position: absolute;
+	left: 100px;
+	text-align: right;
+}
 
 
 /* Sticky footer styles
