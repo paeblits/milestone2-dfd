@@ -5,7 +5,7 @@ angular.module('aerospace-diagram', [])
     $scope.arr = [
                {
             	   title: "Widget Container",
-            	   description: "The Widget Container contains a list of all created widgets. This container allows the controllers to get specific widget or a group of widgets, as well as allow for the widgets to be modify.",
+            	   description: "The Widget Container contains a list of all created widgets. This container allows the controllers to get specific widget or a group of widgets, as well as allow for the widgets to be modified.",
             	   pseudoCode: 
     "<pre>class WidgetContainer()\r\n" +
     "	widgetList <- []\r\n" +
@@ -94,9 +94,31 @@ angular.module('aerospace-diagram', [])
 	"</ul>"
                } , {
             	   title: "Graphing Ctrl",
-            	   description: "",
-            	   pseudoCode: "",
-            	   umlCode: ""
+            	   description: "The Graphing Controller has a reference to the widget object (the wrapper object for the graph) as well as the AngularJS model of the Highcharts instance. The controller takes input from the user to modify and update an instance of a chart, such as the type of chart to represent the data, aesthetic options, and specifying which data feeds to view. Functions for updating chart configuration are not needed since we leverage AngularJS model/view data binding.",
+            	   pseudoCode:
+  "<pre>class GraphingCtrl\r\n" +
+  " chartOptions <- highcharts-ng directive\r\n" +
+  " procedure addDataFeed(id)\r\n" +
+  "   dataFeeds.push <- DataSrcContainer.getFeed(id)\r\n" +
+  " procedure removeDataFeed(id)\r\n" +
+  "   dataFeeds.pop\r\n" +
+  " procedure increaseRefreshRate()\r\n" +
+  "   refreshRate ++ \r\n" +
+  " procedure decreaseRefreshRate()\r\n" +
+  "   refreshRate -- \r\n" +
+  " procedure seriesClick(seriesObj)\r\n" +
+  "   selectedSeries <- seriesObj\r\n" +
+  " procedure pointClick(pointObj)\r\n" +
+  "   selectedPoint <- pointObj</pre>",
+            	   umlCode: 
+  "<ul>" +
+  " <li>+ addDataFeed(id): void</li>" +
+  " <li>+ removeDataFeed(id): void</li>" +
+  " <li>+ increaseRefreshRate(): void</li>" +
+  " <li>+ decreaseRefreshRate(): void</li>" +
+  " <li>+ seriesClick(seriesObj): void</li>" +
+  " <li>+ pointClick(pointObj): void</li>" +
+  "</ul>"
                } , {
             	   title: "DataSrc Ctrl",
             	   description: "The Data Source Controller is responsible for adding new data sources to the Data Source Container. The Data Source Controller will send an instance of a new data source object to the Data Source Container, which the Data Source Container will query the source for feeds that can be added to the list of available feeds.",
