@@ -9,7 +9,11 @@
 
 img.arrows {
 	width: 100%;
-	margin: 5px 0 5px;
+/*	margin: 5px 0 5px; */)
+}
+
+.bottom {
+	height: 60px;
 }
 
 div.module {
@@ -22,8 +26,8 @@ button.module {
 	white-space: normal;
 }
 
-div.module:hover, div.module:focus {
-	cursor: pointer;
+footer {
+	font-size: 12px;
 }
 
 div.popover ul { list-style-type: none; }
