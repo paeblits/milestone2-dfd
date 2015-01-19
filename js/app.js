@@ -159,6 +159,29 @@ angular.module('aerospace-diagram', [])
 	"	<li>+ exportLayout(): void</li>" +
 	"	<li>+ importLayout(element): void</li>" +
 	"</ul>"
+               } , {
+                 title: "DataSrc Ctrl",
+                 description: "The Data Source Controller is responsible for adding new data sources to the Data Source Container. The Data Source Controller will send an instance of a new data source object to the Data Source Container, which the Data Source Container will query the source for feeds that can be added to the list of available feeds.",
+                 pseudoCode: 
+  "<pre>class DataSrcCtrl\r\n" +
+  " source <- new DataSource()\r\n" +
+  " procedure addDataSource(input)\r\n" +
+  "   source.host <- input.host\r\n" +
+  "   source.port <- input.port\r\n" +
+  "   source.username <- input.username\r\n" +
+  "   source.password <- input.password\r\n" +
+  "   DataSrcContainer.addSource(source)</pre>",
+                 umlCode: 
+  "<ul>" +
+  " <li>+ source: DataSource</li>" +
+  " <li>+ addDataSource(input): void</li>" +
+  "</ul>"
+               } , {
+                 title: "Server",
+                 description: "The Server...",
+                 pseudoCode: "",
+                 umlCode: ""
+
                }
     ];
   }]);

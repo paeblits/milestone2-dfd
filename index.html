@@ -148,6 +148,26 @@
         </div>
       </div>
     </div>
+
+    <!-- Server Modal -->
+    <div class="modal fade" id="serverModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Server</h4>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body-description">{{arr[7].description}}</div>
+            <hr />
+            <div class="modal-body-pseudo" ng-bind-html="getHTML(arr[7].pseudoCode)"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- END MODALS -->
 
 
@@ -166,6 +186,12 @@
       <hr>
 
       <!-- top row -->
+      <div class="row server-row">
+        <div class="module col-sm-4 col-sm-offset-4" data-toggle="modal" data-target="#serverModal">
+          <button style="height: 60px" type="button" class="module btn btn-primary btn-block" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="{{arr[7].umlCode}}">{{arr[7].title}}</button>
+          <!--  <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{arr[0].umlCode}}">{{arr[0].title}}</div> -->
+        </div>
+      </div>
       <div class="row">
         <div class="col-sm-12">
           <img class="arrows arrows1" src="images/top.png">
@@ -174,7 +200,6 @@
       <div class="row top">
         <div class="module col-sm-2 col-sm-offset-3" data-toggle="modal" data-target="#widgetContainer">
           <button type="button" class="module btn btn-primary btn-block" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{arr[0].umlCode}}">{{arr[0].title}}</button>
-          <!--  <div data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{arr[0].umlCode}}">{{arr[0].title}}</div> -->
         </div>
         <div class="module col-sm-2 col-sm-offset-2" data-toggle="modal" data-target="#dataSrcContainer">
           <button type="button" class="module btn btn-primary btn-block" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="left" data-content="{{arr[1].umlCode}}">{{arr[1].title}}</button>
