@@ -25,7 +25,7 @@ angular.module('aerospace-diagram', [])
     "	procedure setWidget(widgetId, widget)\r\n" +
     "		widget.id <- widgetId\r\n" +
     "		for each(item in widgetList)\r\n" +
-    "			if(item.id is widget.id)\r\n" +
+    "			if(item.id is widget.id) then\r\n" +
     "				item <- widget</pre>",
             	   umlCode: 
     "<ul>" +
@@ -47,15 +47,15 @@ angular.module('aerospace-diagram', [])
    "	procedure addSource(source)\r\n" +
    "		toAdd <- true\r\n" +
    "		for each(dataSource in dataSourceList)\r\n" +
-   "			if(dataSource.getId() is source.getId())\r\n" +
+   "			if(dataSource.getId() is source.getId()) then\r\n" +
    "				toAdd <- false\r\n" +
-   "		if(toAdd)\r\n" +
+   "		if(toAdd) then\r\n" +
    "			add source to dataSourceList\r\n" +
    "	procedure getFeed(feedId)\r\n" +
    "		retFeed <- null\r\n" +
    "		dataFeedList <- getAllFeeds()\r\n" +
    "		for each(feed in dataFeedList)\r\n" +
-   "			if(feed.getId() is feedId)\r\n" +
+   "			if(feed.getId() is feedId) then\r\n" +
    "				retFeed <- feed\r\n" +
    "		return retFeed\r\n" +
    "	procedure getAllFeeds()\r\n" +
@@ -160,27 +160,51 @@ angular.module('aerospace-diagram', [])
 	"	<li>+ importLayout(element): void</li>" +
 	"</ul>"
                } , {
-                 title: "DataSrc Ctrl",
-                 description: "The Data Source Controller is responsible for adding new data sources to the Data Source Container. The Data Source Controller will send an instance of a new data source object to the Data Source Container, which the Data Source Container will query the source for feeds that can be added to the list of available feeds.",
-                 pseudoCode: 
-  "<pre>class DataSrcCtrl\r\n" +
-  " source <- new DataSource()\r\n" +
-  " procedure addDataSource(input)\r\n" +
-  "   source.host <- input.host\r\n" +
-  "   source.port <- input.port\r\n" +
-  "   source.username <- input.username\r\n" +
-  "   source.password <- input.password\r\n" +
-  "   DataSrcContainer.addSource(source)</pre>",
-                 umlCode: 
-  "<ul>" +
-  " <li>+ source: DataSource</li>" +
-  " <li>+ addDataSource(input): void</li>" +
-  "</ul>"
-               } , {
                  title: "Server",
-                 description: "The Server...",
-                 pseudoCode: "",
-                 umlCode: ""
+                 description: "The Server is the proxy between the back-end servers/services and the clients. To prevent the back-end from being flooded with numerious requests from the clients, the Server will periodically pull data from the back-end and send the data to the clients. The Server will also connect to a new server when a client makes a request to pull data from a new server. Unlike the other modules, this module will run on a JAVA server.",
+                 pseudoCode: 
+	"<pre>class ServerService\r\n" +
+	"	dataSourceList <- DataSource[]\r\n" +
+	"	clientList <- Socket[]\r\n" +
+	"	serverSocket <- new ServerSocket()\r\n" +
+	"	procedure connectToSource(input)\r\n" +
+	"		toAdd <- true\r\n" +
+	"		source <- new DataSource()\r\n" +
+	"		source.host <- input.host\r\n" +
+	"		source.post <- input.port\r\n" +
+	"		source.username <- input.username\r\n" +
+	"		source.password <- input.password\r\n" +
+	"		for each(dataSource in dataSourceList)\r\n" +
+	"			if(dataSource.getId() is source.getId())\r\n" +
+	"				toAdd <- false\r\n" +
+	"		if(toAdd is true) then\r\n" +
+	"			source.connect()\r\n" +
+	"			if(source.isConnected() is true) then\r\n" +
+	"				add source to dataSourceList\r\n" +
+	"	procedure listenForClients()\r\n" +
+	"		client <- serverSocket.accept()\r\n" +
+	"		add client to clientList\r\n" +
+	"	procedure pushDataToClients()\r\n" +
+	"		jsonString <- dataSourceList.toJson()\r\n" +
+	"		for each(client in clientList)\r\n" +
+	"			writer <- new PrintWriter(client.getOutputStream())\r\n" +
+	"			writer.print(jsonString)\r\n" +
+	"			reader <- new InputStreamReader(client.getInputStream())\r\n" +
+	"			input <- reader.readLine()\r\n" +
+	"			if(input.isEmpty() is false)\r\n" +
+	"				connectToSource(input)",
+                 umlCode: 
+	"<ul>" +
+	"	<li>- dataSourceList: DataSource[]</li>" +
+	"	<li>- clientList: Socket[]</li>" +
+	"	<li>- serverSocket: ServerSocket</li>" +
+	"	<li>- connectToSource(input): void</li>" +
+	"</ul>" +
+	"<hr />" +
+	"<ul>" +
+	"	<li>+ listenForClient(): void</li>" +
+	"	<li>+ pushDataToClient(): void</li>" +
+	"</ul>"
 
                }
     ];
