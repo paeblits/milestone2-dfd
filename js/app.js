@@ -26,7 +26,11 @@ angular.module('aerospace-diagram', [])
     "		widget.id <- widgetId\r\n" +
     "		for each(item in widgetList)\r\n" +
     "			if(item.id is widget.id) then\r\n" +
-    "				item <- widget</pre>",
+    "				item <- widget" +
+    "	procedure removeWidget(widgetId)" +
+    "		for each(widget in widgetList)" +
+    "			if(widget.id is widgetId)" +
+    "				remove widget from widgetList</pre>",
             	   umlCode: 
     "<ul>" +
     "	<li>- widgetList: Widget[]</li>" +
@@ -37,6 +41,7 @@ angular.module('aerospace-diagram', [])
     "	<li>+ getWidget(widgetId): Widget</li>" +
     "	<li>+ getAllWidgets(): Widget[]</li>" +
     "	<li>+ setWidget(widgetId,widget): void</li>" +
+    "	<li>+ removeWidget(widgetId): void</li>" +
     "</ul>"
                } , {
             	   title: "DataSrc Container",
