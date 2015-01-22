@@ -114,7 +114,9 @@ angular.module('aerospace-diagram', [])
   " procedure seriesClick(seriesObj)\r\n" +
   "   selectedSeries <- seriesObj\r\n" +
   " procedure pointClick(pointObj)\r\n" +
-  "   selectedPoint <- pointObj</pre>",
+  "   selectedPoint <- pointObj" +
+  "	procedure removeWidget()" +
+  "	   WidgetContainer.removeWidget(widget.id)</pre>",
             	   umlCode: 
   "<ul>" +
   " <li>+ addDataFeed(id): void</li>" +
@@ -123,6 +125,7 @@ angular.module('aerospace-diagram', [])
   " <li>+ decreaseRefreshRate(): void</li>" +
   " <li>+ seriesClick(seriesObj): void</li>" +
   " <li>+ pointClick(pointObj): void</li>" +
+  "	<li>+ removeWidget(): void</li>" +
   "</ul>"
                } , {
             	   title: "DataSrc Ctrl",
