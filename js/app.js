@@ -137,10 +137,10 @@ angular.module('aerospace-diagram', [])
 	"	<li>+ addDataSource(input): void</li>" +
 	"</ul>"
                } , {
-            	   title: "Save/Load Ctrl",
-            	   description: "The Save Load Controller allows users to export or import the layout. The file generated will be an xml file containing data about all the widgets generated, the feeds that those widgets are monitoring and the list of all available data feeds.",
+            	   title: "User Ctrl",
+            	   description: "The User Controller allows users to export or import the layout, as well handling the user authentication process. The files generated, when saving the layout, will be a xml file containing data about all the widgets generated, the feeds that those widgets are monitoring and the list of all available data feeds. When authenticating an user session, an authentication tokens will be stored in the browser's cookie, which will be used to validate if the user is logged in.",
             	   pseudoCode: 
-	"<pre>class SaveLoadCtrl\r\n" +
+	"<pre>class UserCtrl\r\n" +
 	"	procedure exportLayout()\r\n" +
 	"		widgets <- WidgetContainer.getAllWidgets()\r\n" +
 	"		sources <- DataSrcContainer.getAllSources()\r\n" +
@@ -153,11 +153,24 @@ angular.module('aerospace-diagram', [])
 	"		for each(widget in json.widgets)\r\n" +
 	"			WidgetContainer.createWidget(widget)\r\n" +
 	"		for each(source in json.sources)\r\n" +
-	"			DataSrcContainer.addSource(source)</pre>",
+	"			DataSrcContainer.addSource(source)" +
+	"	procedure authenticateUser(input)" +
+	"		request = new AuthRequest()" +
+	"		request->username = input.username" +
+	"		request->password = input.password" +
+	"		request.fetchSecret()" +
+	"		request.authenticate()" +
+	"		setcookie('auth',request.getCookieValue())" +
+	"	procedure logOff()" +
+	"		request = new AuthRequest()" +
+	"		request.logOff()" +
+	"		removeCookie('auth')</pre>",
             	   umlCode: 
 	"<ul>" +
 	"	<li>+ exportLayout(): void</li>" +
 	"	<li>+ importLayout(element): void</li>" +
+	"	<li>+ authenticateUser(input): void</li>" +
+	"	<li>+ logOff(): void</li>" +
 	"</ul>"
                } , {
                  title: "Server",
