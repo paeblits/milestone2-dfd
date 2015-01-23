@@ -69,7 +69,11 @@ angular.module('aerospace-diagram', [])
    "			add source.getFeeds() to dataFeedList\r\n" +
    "		return dataFeedList\r\n" +
    "	procedure getAllSources()\r\n" +
-   "		return dataSourceList</pre>",
+   "		return dataSourceList\r\n" +
+   "	procedure removeDataSource(sourceId)\r\n" +
+   "		for each(soure in dataSoureList)\r\n" +
+   "			if(soure.getId() is sourceId) then\r\n" +
+   "				remove source from dataSourceList</pre>",
             	   umlCode: 
 	"<ul>" +
 	"	<li>- dataFeedList: DataFeed[]</li>" +
@@ -80,6 +84,7 @@ angular.module('aerospace-diagram', [])
 	"	<li>+ getFeed(feedId): DataFeed</li>" +
 	"	<li>+ getAllFeeds(): DataFeed[]</li>" +
 	"	<li>+ getAllSources(): DataSource[]</li>" +
+	"	<li>+ removeDataSource(soureId): void</li>" +
 	"</ul>"
                } , {
             	   title: "Widget Creation Ctrl",
