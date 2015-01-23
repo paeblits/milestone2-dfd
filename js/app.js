@@ -26,10 +26,10 @@ angular.module('aerospace-diagram', [])
     "		widget.id <- widgetId\r\n" +
     "		for each(item in widgetList)\r\n" +
     "			if(item.id is widget.id) then\r\n" +
-    "				item <- widget" +
-    "	procedure removeWidget(widgetId)" +
-    "		for each(widget in widgetList)" +
-    "			if(widget.id is widgetId)" +
+    "				item <- widget\r\n" +
+    "	procedure removeWidget(widgetId)\r\n" +
+    "		for each(widget in widgetList)\r\n" +
+    "			if(widget.id is widgetId)\r\n" +
     "				remove widget from widgetList</pre>",
             	   umlCode: 
     "<ul>" +
@@ -119,8 +119,8 @@ angular.module('aerospace-diagram', [])
   " procedure seriesClick(seriesObj)\r\n" +
   "   selectedSeries <- seriesObj\r\n" +
   " procedure pointClick(pointObj)\r\n" +
-  "   selectedPoint <- pointObj" +
-  "	procedure removeWidget()" +
+  "   selectedPoint <- pointObj\r\n" +
+  "	procedure removeWidget()\r\n" +
   "	   WidgetContainer.removeWidget(widget.id)</pre>",
             	   umlCode: 
   "<ul>" +
@@ -143,11 +143,14 @@ angular.module('aerospace-diagram', [])
 	"		source.port <- input.port\r\n" +
 	"		source.username <- input.username\r\n" +
 	"		source.password <- input.password\r\n" +
-	"		DataSrcContainer.addSource(source)</pre>",
+	"		DataSrcContainer.addSource(source)\r\n" +
+	"	procedure removeDataSource(sourceId)\r\n" +
+	"		DataSourceContainer.removeDataSource()</pre>",
             	   umlCode: 
 	"<ul>" +
 	"	<li>+ source: DataSource</li>" +
 	"	<li>+ addDataSource(input): void</li>" +
+	"	<li>+ removeDataSource(sourceId): void</li>" +
 	"</ul>"
                } , {
             	   title: "User Ctrl",
@@ -166,17 +169,17 @@ angular.module('aerospace-diagram', [])
 	"		for each(widget in json.widgets)\r\n" +
 	"			WidgetContainer.createWidget(widget)\r\n" +
 	"		for each(source in json.sources)\r\n" +
-	"			DataSrcContainer.addSource(source)" +
-	"	procedure authenticateUser(input)" +
-	"		request = new AuthRequest()" +
-	"		request->username = input.username" +
-	"		request->password = input.password" +
-	"		request.fetchSecret()" +
-	"		request.authenticate()" +
-	"		setcookie('auth',request.getCookieValue())" +
-	"	procedure logOff()" +
-	"		request = new AuthRequest()" +
-	"		request.logOff()" +
+	"			DataSrcContainer.addSource(source)\r\n" +
+	"	procedure authenticateUser(input)\r\n" +
+	"		request = new AuthRequest()\r\n" +
+	"		request->username = input.username\r\n" +
+	"		request->password = input.password\r\n" +
+	"		request.fetchSecret()\r\n" +
+	"		request.authenticate()\r\n" +
+	"		setcookie('auth',request.getCookieValue())\r\n" +
+	"	procedure logOff()\r\n" +
+	"		request = new AuthRequest()\r\n" +
+	"		request.logOff()\r\n" +
 	"		removeCookie('auth')</pre>",
             	   umlCode: 
 	"<ul>" +
@@ -193,7 +196,7 @@ angular.module('aerospace-diagram', [])
 	"	dataSourceList <- DataSource[]\r\n" +
 	"	clientList <- Socket[]\r\n" +
 	"	serverSocket <- new ServerSocket()\r\n" +
-	"	procedure connectToSource(input)\r\n" +
+	"	procedure requestConnectToSource(input)\r\n" +
 	"		toAdd <- true\r\n" +
 	"		source <- new DataSource()\r\n" +
 	"		source.host <- input.host\r\n" +
@@ -207,6 +210,10 @@ angular.module('aerospace-diagram', [])
 	"			source.connect()\r\n" +
 	"			if(source.isConnected() is true) then\r\n" +
 	"				add source to dataSourceList\r\n" +
+	"	procedure requestAuthenticateUser(input)\r\n" +
+	"		//TBA\r\n" +
+	"	procedure requestGenerateToken(input)\r\n" +
+	"		//TBA\r\n" +
 	"	procedure listenForClients()\r\n" +
 	"		client <- serverSocket.accept()\r\n" +
 	"		add client to clientList\r\n" +
@@ -218,20 +225,22 @@ angular.module('aerospace-diagram', [])
 	"			reader <- new InputStreamReader(client.getInputStream())\r\n" +
 	"			input <- reader.readLine()\r\n" +
 	"			if(input.isEmpty() is false)\r\n" +
-	"				connectToSource(input)",
+	"				//call appropiate request</pre>",
                  umlCode: 
 	"<ul>" +
 	"	<li>- dataSourceList: DataSource[]</li>" +
 	"	<li>- clientList: Socket[]</li>" +
 	"	<li>- serverSocket: ServerSocket</li>" +
-	"	<li>- connectToSource(input): void</li>" +
+	"	<li>- requestConnectToSource(input): boolean</li>" +
+	"	<li>- requestAuthenticateUser(input): boolean</li>" +
+	"	<li>- requestGenerateToken(input): string</li>" +
 	"</ul>" +
 	"<hr />" +
 	"<ul>" +
 	"	<li>+ listenForClient(): void</li>" +
 	"	<li>+ pushDataToClient(): void</li>" +
 	"</ul>"
-
                }
     ];
   }]);
+
